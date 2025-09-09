@@ -1,0 +1,30 @@
+.container-fluid.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid.page > footer {
+  margin-top: auto;
+  margin-bottom: 3rem;
+}
+
+.card {
+  transition: transform 100ms;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  filter: brightness(1.06);
+}
+
+.card .bg-primary:hover {
+  background-color: #0c4cab !important;
+}
+
+.card .bg-danger:hover {
+  background-color: #9e1c29 !important;
+}
