@@ -69,8 +69,8 @@ app.post('/api/generate', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
-  if (req.path.startsWith('/api')) return res.status(404).json({ error: 'Not found' });
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
   const indexFile = path.join(distPath, 'index.html');
   if (!fs.existsSync(indexFile)) {
     console.error('index.html not found at', indexFile);
