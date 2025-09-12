@@ -25,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadBatch() {
+        const exclude = Array.from(new Set(chosen.map(s => String(s).trim()).filter(Boolean)));
         const res = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({})
+            body: JSON.stringify({ exclude })
         });
         if (!res.ok) throw new Error(res.status);
         const payload = await res.json();
